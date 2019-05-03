@@ -3,6 +3,7 @@
 source 'https://rubygems.org'
 
 gem 'autoprefixer-rails'
+gem 'sqlite3', '~> 1.3.6'
 gem 'bootstrap', '>= 4.3.1'
 gem 'coffee-rails'
 gem 'execjs'
@@ -18,6 +19,7 @@ gem 'sprockets-rails', require: 'sprockets/railtie'
 gem 'turbolinks', '~> 5.0.0'
 gem 'uglifier', '4.1.3'
 
+
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
@@ -28,11 +30,10 @@ end
 group :development, :test do
   gem 'awesome_print'
   gem 'capybara', '~> 2.16'
-  gem 'dotenv-rails', '~> 2.2'
   gem 'pry-byebug'
   gem 'pry-rails', '~> 0.3'
+  gem 'dotenv-rails', '~> 2.2'
   gem 'rubocop'
-  gem 'sqlite3', '~> 1.3'
   gem 'sshkit-sudo'
 end
 
