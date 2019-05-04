@@ -613,3 +613,936 @@ Processing by Api::V1::UsersController#index as HTML
 Completed 200 OK in 10ms (Views: 8.3ms | ActiveRecord: 0.8ms)
 
 
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 15:34:41 +0100
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 36ms (Views: 18.3ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:05:48 +0100
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Martin Lewis", "business"=>"Money Saving Expert", "email"=>"martin.lewis@MSE.com", "telephone"=>"07899098289", "date"=>"2019-05-04", "time"=>"09:00", "user"=>{"name"=>"Martin Lewis", "business"=>"Money Saving Expert", "email"=>"martin.lewis@MSE.com", "telephone"=>"07899098289", "date"=>"2019-05-04", "time"=>"09:00"}}
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "martin.lewis@MSE.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "martin.lewis@MSE.com"], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Martin Lewis"], ["business", "Money Saving Expert"], ["email", "martin.lewis@mse.com"], ["telephone", "07899098289"], ["date", "2019-05-04"], ["time", "2000-01-01 09:00:00"], ["created_at", "2019-05-04 15:05:49.079367"], ["updated_at", "2019-05-04 15:05:49.079367"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 39ms (Views: 0.7ms | ActiveRecord: 6.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:06:01 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "business"=>"Money Saving Expert", "email"=>"martin.lewis@MSE.com", "telephone"=>"07899098289", "date"=>"2019-05-04", "time"=>"09:00", "user"=>{"name"=>"", "business"=>"Money Saving Expert", "email"=>"martin.lewis@MSE.com", "telephone"=>"07899098289", "date"=>"2019-05-04", "time"=>"09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "martin.lewis@MSE.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 40ms (Views: 0.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:06:11 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:06:18 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "business"=>"", "email"=>"", "telephone"=>"", "date"=>"", "time"=>"09:00", "user"=>{"name"=>"", "business"=>"", "email"=>"", "telephone"=>"", "date"=>"", "time"=>"09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:07:48 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "business"=>"", "email"=>"", "telephone"=>"", "date"=>"", "time"=>"09:00", "user"=>{"name"=>"", "business"=>"", "email"=>"", "telephone"=>"", "date"=>"", "time"=>"09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 48ms (Views: 0.5ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:08:25 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Jason Manford", "business"=>"Manford Comedy", "email"=>"Jason@Manford.com", "telephone"=>"07812223345", "date"=>"2019-05-03", "time"=>"09:00", "user"=>{"name"=>"Jason Manford", "business"=>"Manford Comedy", "email"=>"Jason@Manford.com", "telephone"=>"07812223345", "date"=>"2019-05-03", "time"=>"09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Jason@Manford.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Jason@Manford.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "date", "time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jason Manford"], ["business", "Manford Comedy"], ["email", "jason@manford.com"], ["telephone", "07812223345"], ["date", "2019-05-03"], ["time", "2000-01-01 09:00:00"], ["created_at", "2019-05-04 15:08:25.445107"], ["updated_at", "2019-05-04 15:08:25.445107"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 25ms (Views: 13.9ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:09:33 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"", "business"=>"", "email"=>"", "telephone"=>"", "date"=>"", "time"=>"09:00", "user"=>{"name"=>"", "business"=>"", "email"=>"", "telephone"=>"", "date"=>"", "time"=>"09:00"}}
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", ""], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 26ms (Views: 1.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:09:51 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 15ms (Views: 14.3ms | ActiveRecord: 0.4ms)
+
+
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190504120940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (3.2ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190504120940"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190504120940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "business" varchar, "email" varchar, "telephone" varchar, "datetime" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190504120940"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2019-05-04 16:54:53 +0100
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/Matt/.rvm/gems/ruby-2.5.3/gems/railties-5.1.6.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/Matt/.rvm/gems/ruby-2.5.3/gems/railties-5.1.6.2/lib/rails/templates/rails/welcome/index.html.erb (4.7ms)
+Completed 200 OK in 28ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:54:55 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 22ms (Views: 6.7ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:55:21 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matthew Collins", "business"=>"Design MC", "email"=>"matt@designmc.co.uk", "telephone"=>"07814945806", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Matthew Collins", "business"=>"Design MC", "email"=>"matt@designmc.co.uk", "telephone"=>"07814945806", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.co.uk"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 34ms (ActiveRecord: 1.0ms)
+
+
+  
+NoMethodError (undefined method `date' for #<User:0x00007fd27f28acb8>
+Did you mean?  update):
+  
+app/controllers/api/v1/users_controller.rb:14:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:56:32 +0100
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:56:42 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matthew Collins", "business"=>"Design MC", "email"=>"matt@designmc.co.uk", "telephone"=>"07814945806", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Matthew Collins", "business"=>"Design MC", "email"=>"matt@designmc.co.uk", "telephone"=>"07814945806", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.co.uk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.co.uk"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matthew Collins"], ["business", "Design MC"], ["email", "matt@designmc.co.uk"], ["telephone", "07814945806"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 15:56:42.480031"], ["updated_at", "2019-05-04 15:56:42.480031"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 28ms (Views: 0.7ms | ActiveRecord: 5.0ms)
+
+
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 25ms (Views: 18.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 16:57:40 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Martin Lewis", "business"=>"MSE", "email"=>"martin@mse.com", "telephone"=>"07899098765", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Martin Lewis", "business"=>"MSE", "email"=>"martin@mse.com", "telephone"=>"07899098765", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "martin@mse.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "martin@mse.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Martin Lewis"], ["business", "MSE"], ["email", "martin@mse.com"], ["telephone", "07899098765"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 15:57:40.448996"], ["updated_at", "2019-05-04 15:57:40.448996"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 25ms (Views: 1.2ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:01:25 +0100
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+          }.to_json
+                   ^):
+  
+app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:02:55 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+        }.to_json
+                 ^):
+  
+app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/users_controller.rb:7:in `index'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:03:17 +0100
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 2ms
+
+
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+        }.to_json
+                 ^):
+  
+app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/users_controller.rb:7:in `index'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:03:44 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+        }.to_json
+                 ^):
+  
+app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/users_controller.rb:7:in `index'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:05:06 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:30: syntax error, unexpected '\n', expecting =>
+...time' => self.datetime}.to_json
+...                               ^):
+  
+app/models/user.rb:30: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/users_controller.rb:7:in `index'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:05:53 +0100
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:30: syntax error, unexpected '\n', expecting =>
+...time' => self.datetime}.to_json
+...                               ^):
+  
+app/models/user.rb:30: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/users_controller.rb:7:in `index'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:06:23 +0100
+Processing by Api::V1::UsersController#index as HTML
+Completed 500 Internal Server Error in 4ms
+
+
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+        }.to_json
+                 ^):
+  
+app/models/user.rb:31: syntax error, unexpected '\n', expecting =>
+app/controllers/api/v1/users_controller.rb:7:in `index'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:10:09 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 38ms (Views: 31.9ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:10:31 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Jason Manford", "business"=>"Manford Comedy Store", "email"=>"Jason@manford.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Jason Manford", "business"=>"Manford Comedy Store", "email"=>"Jason@manford.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Jason@manford.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Jason@manford.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Jason Manford"], ["business", "Manford Comedy Store"], ["email", "jason@manford.com"], ["telephone", "09876543212"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 16:10:31.975990"], ["updated_at", "2019-05-04 16:10:31.975990"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 40100ms (Views: 0.6ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:12:22 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Harry McGuire", "business"=>"Slabhead Industries", "email"=>"harry@slabs.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Harry McGuire", "business"=>"Slabhead Industries", "email"=>"harry@slabs.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "harry@slabs.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "harry@slabs.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Harry McGuire"], ["business", "Slabhead Industries"], ["email", "harry@slabs.com"], ["telephone", "09876543212"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 16:12:22.645990"], ["updated_at", "2019-05-04 16:12:22.645990"]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 8966ms (Views: 0.6ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:15:10 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Harry McGuire", "business"=>"Slabhead Industries", "email"=>"harry@slabs.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Harry McGuire", "business"=>"Slabhead Industries", "email"=>"harry@slabs.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "harry@slabs.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 54ms (Views: 0.4ms | ActiveRecord: 2.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:16:05 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Gary Killmister", "business"=>"Killmister Accountants", "email"=>"Gary@Acc.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Gary Killmister", "business"=>"Killmister Accountants", "email"=>"Gary@Acc.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Gary@Acc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Gary@Acc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Gary Killmister"], ["business", "Killmister Accountants"], ["email", "gary@acc.com"], ["telephone", "09876543212"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 16:16:05.478983"], ["updated_at", "2019-05-04 16:16:05.478983"]]
+  [1m[35m (4.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 105ms (Views: 0.6ms | ActiveRecord: 5.8ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:21:10 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Patrick Stewert", "business"=>"Starship Enterprise", "email"=>"Pat@stars.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Patrick Stewert", "business"=>"Starship Enterprise", "email"=>"Pat@stars.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Pat@stars.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Pat@stars.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick Stewert"], ["business", "Starship Enterprise"], ["email", "pat@stars.com"], ["telephone", "09876543212"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 16:21:10.939733"], ["updated_at", "2019-05-04 16:21:10.939733"]]
+  [1m[35m (4.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 40ms (Views: 0.8ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:23:20 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 28ms (Views: 23.1ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:23:35 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Patrick Stet", "business"=>"Starship Enterprise", "email"=>"Pat@stars.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Patrick Stet", "business"=>"Starship Enterprise", "email"=>"Pat@stars.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Pat@stars.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 12ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 17:23:57 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Patrick Stet", "business"=>"Starp Enterprise", "email"=>"Pat@sts.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00", "user"=>{"name"=>"Patrick Stet", "business"=>"Starp Enterprise", "email"=>"Pat@sts.com", "telephone"=>"09876543212", "datetime"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Pat@sts.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Pat@sts.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "business", "email", "telephone", "datetime", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Patrick Stet"], ["business", "Starp Enterprise"], ["email", "pat@sts.com"], ["telephone", "09876543212"], ["datetime", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 16:23:57.836906"], ["updated_at", "2019-05-04 16:23:57.836906"]]
+  [1m[35m (4.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 17ms (Views: 1.0ms | ActiveRecord: 5.9ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:17:48 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"TEst", "business_name"=>"Test", "telephone_number"=>"0000000000", "email"=>"Test@test.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"TEst", "email"=>"Test@test.com"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test@test.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 104ms (Views: 1.0ms | ActiveRecord: 15.8ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:18:02 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"TEst2", "business_name"=>"Test2", "telephone_number"=>"0000000000", "email"=>"Tes2t@tes2t.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"TEst2", "email"=>"Tes2t@tes2t.com"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Tes2t@tes2t.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 7ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "business" varchar, "email" varchar, "telephone" varchar, "datetime" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (3.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190504120940)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-04 18:18:39.592659"], ["updated_at", "2019-05-04 18:18:39.592659"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "users"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "business" varchar, "email" varchar, "telephone" varchar, "datetime" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20190504120940)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-05-04 18:18:39.633236"], ["updated_at", "2019-05-04 18:18:39.633236"]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.9ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = ?, "updated_at" = ? WHERE "ar_internal_metadata"."key" = ?[0m  [["value", "test"], ["updated_at", "2019-05-04 18:18:39.644914"], ["key", "environment"]]
+  [1m[35m (5.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:19:34 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 19ms (Views: 3.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:19:40 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"TEst2", "business_name"=>"Test2", "telephone_number"=>"0000000000", "email"=>"Tes2t@tes2t.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"TEst2", "email"=>"Tes2t@tes2t.com"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Tes2t@tes2t.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 50ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:20:09 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:21:32 +0100
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 29ms (Views: 3.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:21:55 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"one", "business_name"=>"two", "telephone_number"=>"5678901234", "email"=>"three@four.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"one", "email"=>"three@four.com"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "three@four.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 55ms (Views: 0.5ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190504120940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190504120940"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190504120940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "business_name" varchar, "email" varchar, "telephone_number" varchar, "contact_time" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190504120940"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:25:22 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"DesignMC", "telephone_number"=>"07814945806", "email"=>"matt@designmc.co.uk", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"DesignMC", "email"=>"matt@designmc.co.uk", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.co.uk"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 52ms (ActiveRecord: 2.4ms)
+
+
+  
+NoMethodError (undefined method `business' for #<User:0x00007fce3c253070>
+Did you mean?  business_name):
+  
+app/controllers/api/v1/users_controller.rb:17:in `create'
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:26:11 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 8ms (Views: 2.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:27:32 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 15ms (Views: 1.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:27:50 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"DesignMC", "telephone_number"=>"0000000000", "email"=>"matt@designmc.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"DesignMC", "email"=>"matt@designmc.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 58ms (ActiveRecord: 2.5ms)
+
+
+  
+NoMethodError (undefined method `business' for #<User:0x00007fba10abc030>
+Did you mean?  business_name):
+  
+app/controllers/api/v1/users_controller.rb:17:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:28:50 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"DesignMC", "telephone_number"=>"0000000000", "email"=>"matt@designmc.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"DesignMC", "email"=>"matt@designmc.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "DesignMC"], ["email", "matt@designmc.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:29:00.227057"], ["updated_at", "2019-05-04 18:29:00.227057"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 36ms (Views: 0.7ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:30:23 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:31:02 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"DesignMC", "telephone_number"=>"0000000000", "email"=>"matt2@designmc.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"DesignMC", "email"=>"matt2@designmc.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt2@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt2@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (3.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "DesignMC"], ["email", "matt2@designmc.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:31:02.588701"], ["updated_at", "2019-05-04 18:31:02.588701"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 500 Internal Server Error in 71ms (ActiveRecord: 8.7ms)
+
+
+  
+NoMethodError (undefined method `errors' for #<ArgumentError:0x00007fba1293dfe0>):
+  
+app/models/user.rb:35:in `rescue in make_post_req'
+app/models/user.rb:15:in `make_post_req'
+app/controllers/api/v1/users_controller.rb:20:in `create'
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:33:14 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"DesignMC", "telephone_number"=>"0000000000", "email"=>"matt3@designmc.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"DesignMC", "email"=>"matt3@designmc.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt3@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt3@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "DesignMC"], ["email", "matt3@designmc.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:33:15.031943"], ["updated_at", "2019-05-04 18:33:15.031943"]]
+  [1m[35m (8.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 3198ms (Views: 1.0ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:34:18 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"DesignMC", "telephone_number"=>"0000000000", "email"=>"matt4@designmc.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"DesignMC", "email"=>"matt4@designmc.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt4@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt4@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "DesignMC"], ["email", "matt4@designmc.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:34:18.176745"], ["updated_at", "2019-05-04 18:34:18.176745"]]
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 105ms (Views: 1.0ms | ActiveRecord: 10.7ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:35:49 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "telephone_number"=>"09876543211", "email"=>"MARK@FACE.COM", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "email"=>"MARK@FACE.COM", "telephone_number"=>"09876543211", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK@FACE.COM"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK@FACE.COM"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MARK ZUCK"], ["business_name", "FACEBOOK"], ["email", "mark@face.com"], ["telephone_number", "09876543211"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:35:49.829345"], ["updated_at", "2019-05-04 18:35:49.829345"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 126ms (Views: 0.6ms | ActiveRecord: 7.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:36:55 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "telephone_number"=>"09876543211", "email"=>"MARK2@FACE.COM", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "email"=>"MARK2@FACE.COM", "telephone_number"=>"09876543211", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK2@FACE.COM"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK2@FACE.COM"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MARK ZUCK"], ["business_name", "FACEBOOK"], ["email", "mark2@face.com"], ["telephone_number", "09876543211"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:36:55.982120"], ["updated_at", "2019-05-04 18:36:55.982120"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 112ms (Views: 0.8ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:37:35 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "telephone_number"=>"09876543211", "email"=>"MARK3@FACE.COM", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "email"=>"MARK3@FACE.COM", "telephone_number"=>"09876543211", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK3@FACE.COM"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK3@FACE.COM"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MARK ZUCK"], ["business_name", "FACEBOOK"], ["email", "mark3@face.com"], ["telephone_number", "09876543211"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:37:35.937927"], ["updated_at", "2019-05-04 18:37:35.937927"]]
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 70ms (Views: 0.9ms | ActiveRecord: 4.9ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:38:02 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "telephone_number"=>"09876543211", "email"=>"MARK4@FACE.COM", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"MARK ZUCK", "business_name"=>"FACEBOOK", "email"=>"MARK4@FACE.COM", "telephone_number"=>"09876543211", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK4@FACE.COM"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "MARK4@FACE.COM"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "MARK ZUCK"], ["business_name", "FACEBOOK"], ["email", "mark4@face.com"], ["telephone_number", "09876543211"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:38:03.336011"], ["updated_at", "2019-05-04 18:38:03.336011"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 185ms (Views: 1.6ms | ActiveRecord: 6.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:39:03 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:39:13.879625"], ["updated_at", "2019-05-04 18:39:13.879625"]]
+  [1m[35m (3.8ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 87ms (Views: 0.8ms | ActiveRecord: 7.0ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:39:59 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt.collins@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 48ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:40:03 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt3.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt3.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt3.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt3.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt3.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:40:03.532474"], ["updated_at", "2019-05-04 18:40:03.532474"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 81ms (Views: 0.9ms | ActiveRecord: 4.3ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:42:24 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt4.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt4.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt4.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt4.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt4.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:42:24.409262"], ["updated_at", "2019-05-04 18:42:24.409262"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 84ms (Views: 1.5ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:44:36 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt5.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt5.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt5.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt5.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt5.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:44:36.284369"], ["updated_at", "2019-05-04 18:44:36.284369"]]
+  [1m[35m (3.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 110918ms (Views: 1.6ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:46:55 +0100
+Processing by Api::V1::UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 42ms (Views: 32.9ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:47:03 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt6.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt6.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt6.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt6.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt6.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:47:03.677364"], ["updated_at", "2019-05-04 18:47:03.677364"]]
+  [1m[35m (3.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 7011ms (Views: 1.8ms | ActiveRecord: 5.1ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:52:48 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt7.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt7.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt7.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt7.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt7.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:52:48.412571"], ["updated_at", "2019-05-04 18:52:48.412571"]]
+  [1m[35m (4.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 194ms (Views: 0.9ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 19:54:19 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt8.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt8.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt8.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt8.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt8.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 18:54:19.534854"], ["updated_at", "2019-05-04 18:54:19.534854"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 67ms (Views: 0.8ms | ActiveRecord: 5.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 20:06:22 +0100
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:24: syntax error, unexpected '=', expecting =>
+          'access_token'= {ENV['LEAD_API_ACCESS_TOKEN'...
+                        ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:24: syntax error, unexpected '}', expecting =>
+... {ENV['LEAD_API_ACCESS_TOKEN']},
+...                              ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:25: syntax error, unexpected '=', expecting keyword_end
+          'pGUID' = {ENV['LEAD_API_PGUID']},
+                  ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:25: syntax error, unexpected '}', expecting =>
+...GUID' = {ENV['LEAD_API_PGUID']},
+...                              ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:26: syntax error, unexpected '=', expecting keyword_end
+          'pAccName' = {ENV['LEAD_API_PACCNAME']},
+                     ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:26: syntax error, unexpected '}', expecting =>
+...e' = {ENV['LEAD_API_PACCNAME']},
+...                              ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:27: syntax error, unexpected '=', expecting keyword_end
+          'pPartner' = {ENV['LEAD_API_PPARTNER']},
+                     ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:27: syntax error, unexpected '}', expecting =>
+...r' = {ENV['LEAD_API_PPARTNER']},
+...                              ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:28: syntax error, unexpected '=', expecting keyword_end
+          'name' = {self.name},
+                 ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:28: syntax error, unexpected '}', expecting =>
+          'name' = {self.name},
+                             ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:29: syntax error, unexpected '=', expecting keyword_end
+          'business_name' = {self.business_name},
+                          ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:29: syntax error, unexpected '}', expecting =>
+...ss_name' = {self.business_name},
+...                              ^
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:30: syntax error, unexpected =>, expecting keyword_end
+          'telephone_number' => self.telephone_number,
+                             ^~
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+          'email' => self.email,
+                  ^~
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:32: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+          'contact_time' => self.contact_time
+                         ^~
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:33: syntax error, unexpected '}', expecting keyword_end
+        }.to_json
+        ^):
+  
+app/models/user.rb:24: syntax error, unexpected '=', expecting =>
+app/models/user.rb:24: syntax error, unexpected '}', expecting =>
+app/models/user.rb:25: syntax error, unexpected '=', expecting keyword_end
+app/models/user.rb:25: syntax error, unexpected '}', expecting =>
+app/models/user.rb:26: syntax error, unexpected '=', expecting keyword_end
+app/models/user.rb:26: syntax error, unexpected '}', expecting =>
+app/models/user.rb:27: syntax error, unexpected '=', expecting keyword_end
+app/models/user.rb:27: syntax error, unexpected '}', expecting =>
+app/models/user.rb:28: syntax error, unexpected '=', expecting keyword_end
+app/models/user.rb:28: syntax error, unexpected '}', expecting =>
+app/models/user.rb:29: syntax error, unexpected '=', expecting keyword_end
+app/models/user.rb:29: syntax error, unexpected '}', expecting =>
+app/models/user.rb:30: syntax error, unexpected =>, expecting keyword_end
+app/models/user.rb:31: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/models/user.rb:32: syntax error, unexpected =>, expecting &. or :: or '[' or '.'
+app/models/user.rb:33: syntax error, unexpected '}', expecting keyword_end
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 20:07:00 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt10.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt10.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt10.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt10.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt10.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 19:07:00.867147"], ["updated_at", "2019-05-04 19:07:00.867147"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 197ms (Views: 1.0ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 20:10:12 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt1=20.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt1=20.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt1=20.collins@gmail.com"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 27ms (Views: 0.5ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 20:10:33 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt120.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt120.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt120.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt120.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt120.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 19:10:33.431675"], ["updated_at", "2019-05-04 19:10:33.431675"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 1100ms (Views: 1.3ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 20:17:20 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"matt", "business_name"=>"Collins", "telephone_number"=>"0000000000", "email"=>"matt130.collins@gmail.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"matt", "business_name"=>"Collins", "email"=>"matt130.collins@gmail.com", "telephone_number"=>"0000000000", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt130.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt130.collins@gmail.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "matt"], ["business_name", "Collins"], ["email", "matt130.collins@gmail.com"], ["telephone_number", "0000000000"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 19:17:20.508037"], ["updated_at", "2019-05-04 19:17:20.508037"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 135ms (Views: 1.0ms | ActiveRecord: 8.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:09:40 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Test Test", "business_name"=>"test", "telephone_number"=>"016238457878", "email"=>"Test1@TEst.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Test Test", "business_name"=>"test", "email"=>"Test1@TEst.com", "telephone_number"=>"016238457878", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test1@TEst.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test1@TEst.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Test Test"], ["business_name", "test"], ["email", "test1@test.com"], ["telephone_number", "016238457878"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 20:09:40.613863"], ["updated_at", "2019-05-04 20:09:40.613863"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 82ms (Views: 1.4ms | ActiveRecord: 6.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190504120940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mDROP TABLE "users"[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20190504120940"]]
+  [1m[35m (3.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20190504120940)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "business_name" varchar, "email" varchar, "telephone_number" varchar, "contact_time" datetime, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190504120940"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:11:35 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Test Test", "business_name"=>"test", "telephone_number"=>"016238457878", "email"=>"Test2@TEst.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Test Test", "business_name"=>"test", "email"=>"Test2@TEst.com", "telephone_number"=>"016238457878", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test2@TEst.com"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test2@TEst.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Test Test"], ["business_name", "test"], ["email", "test2@test.com"], ["telephone_number", "016238457878"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 20:11:36.637511"], ["updated_at", "2019-05-04 20:11:36.637511"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 278ms (Views: 1.7ms | ActiveRecord: 4.1ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:16:20 +0100
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:65: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/models/user.rb:65: syntax error, unexpected end-of-input, expecting keyword_end
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:16:48 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Test Test", "business_name"=>"test", "telephone_number"=>"016238457878", "email"=>"Test4@TEst.com", "contact_time"=>"2019-05-24 09:00:00", "user"=>{"name"=>"Test Test", "business_name"=>"test", "email"=>"Test4@TEst.com", "telephone_number"=>"016238457878", "contact_time"=>"2019-05-24 09:00:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test4@TEst.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "Test4@TEst.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Test Test"], ["business_name", "test"], ["email", "test4@test.com"], ["telephone_number", "016238457878"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 20:16:48.156665"], ["updated_at", "2019-05-04 20:16:48.156665"]]
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 33ms (Views: 0.9ms | ActiveRecord: 6.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:20:11 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt@designmc.co.uk", "contact_time"=>"2019-05-24T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt@designmc.co.uk", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-24T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.co.uk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt@designmc.co.uk"], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt@designmc.co.uk"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-24 09:00:00"], ["created_at", "2019-05-04 20:20:11.824972"], ["updated_at", "2019-05-04 20:20:11.824972"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 34ms (Views: 0.8ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:22:56 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt1@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt1@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt1@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt1@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt1@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:22:56.691582"], ["updated_at", "2019-05-04 20:22:56.691582"]]
+  [1m[35m (3.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 23ms (Views: 1.3ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:23:40 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt2@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt2@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt2@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt2@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt2@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:23:40.447738"], ["updated_at", "2019-05-04 20:23:40.447738"]]
+  [1m[35m (3.9ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 120ms (Views: 1.1ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:24:54 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt3@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt3@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (11.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt3@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt3@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (13.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt3@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:24:54.256526"], ["updated_at", "2019-05-04 20:24:54.256526"]]
+  [1m[35m (2.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 202 Accepted in 352421ms (Views: 1.5ms | ActiveRecord: 30.4ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:30:56 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt4@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt4@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt4@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt4@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt4@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:30:56.142783"], ["updated_at", "2019-05-04 20:30:56.142783"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:36:45 +0100
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:17: unknown type of %string
+... self.contact_time.strftime(%FT%R)
+...                            ^~~
+/Users/Matt/flatiron/jobs/code_test/Backend/app/models/user.rb:17: syntax error, unexpected end-of-input, expecting ')'
+... self.contact_time.strftime(%FT%R)
+...                            ^~~):
+  
+app/models/user.rb:17: unknown type of %string
+app/models/user.rb:17: syntax error, unexpected end-of-input, expecting ')'
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:37:10 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt6@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt6@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt6@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt6@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt6@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:37:20.685211"], ["updated_at", "2019-05-04 20:37:20.685211"]]
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 13749ms (Views: 2.2ms | ActiveRecord: 4.6ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:39:28 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt7@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt7@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt7@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt7@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt7@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:39:28.822392"], ["updated_at", "2019-05-04 20:39:28.822392"]]
+  [1m[35m (2.7ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 43ms (Views: 1.8ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:39:42 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt8@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt8@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt8@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt8@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt8@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:39:52.749762"], ["updated_at", "2019-05-04 20:39:52.749762"]]
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 134878ms (Views: 1.6ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:42:20 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt9@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt9@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt9@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt9@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt9@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:42:20.189687"], ["updated_at", "2019-05-04 20:42:20.189687"]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+Completed 202 Accepted in 105052ms (Views: 1.0ms | ActiveRecord: 11.5ms)
+
+
+Started POST "/api/v1/users" for 127.0.0.1 at 2019-05-04 21:44:14 +0100
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"name"=>"Matt Collins", "business_name"=>"Design MC", "telephone_number"=>"07814945806", "email"=>"matt10@designmc.com", "contact_time"=>"2019-05-18T09:00", "user"=>{"name"=>"Matt Collins", "business_name"=>"Design MC", "email"=>"matt10@designmc.com", "telephone_number"=>"07814945806", "contact_time"=>"2019-05-18T09:00"}}
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt10@designmc.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mCACHE User Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER(?) LIMIT ?[0m  [["email", "matt10@designmc.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "users" ("name", "business_name", "email", "telephone_number", "contact_time", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Matt Collins"], ["business_name", "Design MC"], ["email", "matt10@designmc.com"], ["telephone_number", "07814945806"], ["contact_time", "2019-05-18 09:00:00"], ["created_at", "2019-05-04 20:44:15.090176"], ["updated_at", "2019-05-04 20:44:15.090176"]]
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+Completed 202 Accepted in 16958ms (Views: 1.0ms | ActiveRecord: 5.8ms)
+
+

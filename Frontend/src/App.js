@@ -1,17 +1,12 @@
 import React from 'react';
 import './App.css';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 // import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import API from './API';
 
@@ -55,26 +50,30 @@ class CallBackForm extends React.Component {
     businessName: '',
     email: '',
     telNumber: '',
-    callDate: '',
-    callTime: '09:00',
+    callDateTime: '2019-05-24T09:00',
+    fullNameValid: false,
+    businessNameValid: false,
+    emailValid: false,
+    telNumberValid: false,
+    callDateValid: false,
+    callTimeValid: false,
+    formValid: false
   };
 
   handleChange = event =>
   this.setState({ [event.target.name]: event.target.value });
 
   handleSubmitClick = () => {
-    const { fullName, businessName, email, telNumber, callDate, callTime } = this.state;
+    const { fullName, businessName, email, telNumber, callDateTime} = this.state;
     const user = {
       name: fullName, 
-      business: businessName, 
+      business_name: businessName, 
+      telephone_number: telNumber, 
       email: email, 
-      telephone: 
-      telNumber, 
-      date: callDate, 
-      time: callTime
+      contact_time: callDateTime
     }
     API.createUser(user).then(data => {
-      if (data.error) {
+      if (data.errors) {
         alert("something is wrong, please try again later.");
       } else {
         alert("Thank you for Submitting your information! MakeItCheaper will get back to you.")
@@ -146,25 +145,12 @@ class CallBackForm extends React.Component {
         </Grid>
         <Grid item xs={12}>
         <TextField
-        id="date"
-        label="Select a Date:"
-        type="date"
-        name="callDate"
-        value={this.state.callDate}
-        onChange={this.handleChange}
-        className={classes.textField}
-        margin="normal"
-        InputLabelProps={{
-          shrink: true,
-        }}
-      />
-        </Grid>
-        <Grid item xs={12}>
-        <TextField
         id="time"
         label="Select a Time"
-        type="time"
-        defaultValue={this.state.callTime}
+        type="datetime-local"
+        name="callDateTime"
+        onChange={this.handleChange}
+        defaultValue={this.state.callDateTime}
         className={classes.textField}
         margin="normal"
         InputLabelProps={{

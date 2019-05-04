@@ -1,3 +1,6 @@
+require 'pry'
+
+
 class Api::V1::UsersController < ApplicationController
 
     def index
@@ -13,6 +16,8 @@ class Api::V1::UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.valid?
         @user.save
+        puts 'hello'
+        @user.make_post_req
         render json: @user, status: :accepted
         else
           render json: { errors: @user.errors.full_messages }, status: :unprocessible_entity
@@ -23,7 +28,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:name, :business, :email, :telephone, :date, :time)
+        params.require(:user).permit(:name, :business_name, :email, :telephone_number, :contact_time)
     end
 
   end
