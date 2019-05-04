@@ -21,7 +21,7 @@ const styles = theme => ({
     
   },
   card: {
-    maxWidth: 345,
+    maxWidth: 40+'%',
     padding: 20,
     textAlign: 'center',
   },
@@ -33,7 +33,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 200,
+    width: 90+'%',
   },
   dense: {
     marginTop: 19,
@@ -44,15 +44,16 @@ const styles = theme => ({
 
 class CallBackForm extends React.Component {
   state = {
-    name: 'Cat in the Hat',
-    age: '',
-    multiline: 'Controlled',
-    currency: 'EUR',
+    fullName: '',
+    businessName: '',
+    email: '',
+    telNumber: '',
+    callDate: '',
+    callTime: '',
   };
 
-  handleChange = name => event => {
-    this.setState({ [name]: event.target.value });
-  };
+  handleChange = event =>
+  this.setState({ [event.target.name]: event.target.value });
 
   
 
@@ -68,166 +69,69 @@ class CallBackForm extends React.Component {
           <Grid item xs={12}>
         <TextField
           id="standard-name"
-          label="Name"
+          label="Full Name"
+          name="fullName"
           className={classes.textField}
-          value={this.state.name}
-          onChange={this.handleChange('name')}
+          value={this.state.fullName}
+          onChange={this.handleChange}
           margin="normal"
         />
         </Grid>
         <Grid item xs={12}>
         <TextField
-          id="standard-uncontrolled"
-          label="Uncontrolled"
-          defaultValue="foo"
+          id="standard-name"
+          label="Business Name"
+          name="businessName"
           className={classes.textField}
+          value={this.state.businessName}
+          onChange={this.handleChange}
           margin="normal"
         />
         </Grid>
         <Grid item xs={12}>
         <TextField
-          required
-          id="standard-required"
-          label="Required"
-          defaultValue="Hello World"
+          id="standard-name"
+          label="Email Address"
+          name="email"
           className={classes.textField}
+          value={this.state.email}
+          onChange={this.handleChange}
           margin="normal"
         />
         </Grid>
         <Grid item xs={12}>
         <TextField
-          error
-          id="standard-error"
-          label="Error"
-          defaultValue="Hello World"
+          id="standard-name"
+          label="Telephone Number"
+          name="telNumber"
           className={classes.textField}
+          value={this.state.telNumber}
+          onChange={this.handleChange}
           margin="normal"
         />
         </Grid>
         <Grid item xs={12}>
         <TextField
-          disabled
-          id="standard-disabled"
-          label="Disabled"
-          defaultValue="Hello World"
+          id="standard-name"
+          label="Select a date:"
+          name="callDate"
           className={classes.textField}
+          value={this.state.CallDate}
+          onChange={this.handleChange}
           margin="normal"
         />
         </Grid>
         <Grid item xs={12}>
         <TextField
-          id="standard-password-input"
-          label="Password"
+          id="standard-name"
+          label="Select a time:"
+          name="callTime"
           className={classes.textField}
-          type="password"
-          autoComplete="current-password"
+          value={this.state.callTime}
+          onChange={this.handleChange}
           margin="normal"
         />
         </Grid>
-        {/* <TextField
-          id="standard-read-only-input"
-          label="Read Only"
-          defaultValue="Hello World"
-          className={classes.textField}
-          margin="normal"
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-
-        <TextField
-          id="standard-dense"
-          label="Dense"
-          className={classNames(classes.textField, classes.dense)}
-          margin="dense"
-        />
-
-        <TextField
-          id="standard-multiline-flexible"
-          label="Multiline"
-          multiline
-          rowsMax="4"
-          value={this.state.multiline}
-          onChange={this.handleChange('multiline')}
-          className={classes.textField}
-          margin="normal"
-        />
-
-        <TextField
-          id="standard-multiline-static"
-          label="Multiline"
-          multiline
-          rows="4"
-          defaultValue="Default Value"
-          className={classes.textField}
-          margin="normal"
-        />
-
-        <TextField
-          id="standard-helperText"
-          label="Helper text"
-          defaultValue="Default Value"
-          className={classes.textField}
-          helperText="Some important text"
-          margin="normal"
-        />
-
-        <TextField
-          id="standard-with-placeholder"
-          label="With placeholder"
-          placeholder="Placeholder"
-          className={classes.textField}
-          margin="normal"
-        />
-
-        <TextField
-          id="standard-textarea"
-          label="With placeholder multiline"
-          placeholder="Placeholder"
-          multiline
-          className={classes.textField}
-          margin="normal"
-        />
-
-        <TextField
-          id="standard-number"
-          label="Number"
-          value={this.state.age}
-          onChange={this.handleChange('age')}
-          type="number"
-          className={classes.textField}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          margin="normal"
-        />
-
-        <TextField
-          id="standard-search"
-          label="Search field"
-          type="search"
-          className={classes.textField}
-          margin="normal"
-        />
-        <TextField
-          id="standard-full-width"
-          label="Label"
-          style={{ margin: 8 }}
-          placeholder="Placeholder"
-          helperText="Full width!"
-          fullWidth
-          margin="normal"
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
-
-        <TextField
-          id="standard-bare"
-          className={classes.textField}
-          defaultValue="Bare"
-          margin="normal"
-        /> */}
       </form>
           </Card>
         </Grid>
