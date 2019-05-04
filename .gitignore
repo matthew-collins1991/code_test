@@ -14,3 +14,5 @@ db/*.sql
 puma_staging.rb
 public/assets
 **/Thumbs.db
+/Frontend/node_modules
+.DS_Store
