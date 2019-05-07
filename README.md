@@ -7,25 +7,17 @@
 - API documentation on [http://mic-leads.dev-test.makeiteasy.com/api/v1/docs](http://mic-leads.dev-test.makeiteasy.com/api/v1/docs)
 - Copy/paste `.env.example` to `.env`
 - Setup API token provided by Make It Cheaper
+
+FOR THE BACKEND
+- cd into Backend folder
 - `bundle install`
+- `rake db:create db:migrate`
 - `rails s`
 
-## 3. When finished
-
-- provide a git URL to allow us to read/run your code
-- and/or create a pull request
-
-## 4. Your app must start by running the following commands
-
-- `bundle install`
-- `rake db:create db:migrate` (If you use a database or sqlite3. It's possible to do the test without any database)
-- `rails s`
-
-## Test
-
-```shell
-bundle exec rspec
-```
+FOR THE FRONTEND
+- cd into Frontend folder
+- 'npm install'
+- 'npm start'
 
 ## Environments variables
 
