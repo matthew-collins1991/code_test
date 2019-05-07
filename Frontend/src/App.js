@@ -27,6 +27,7 @@ class CallBackForm extends React.Component {
   telRef = React.createRef();
   dateRef = React.createRef();
 
+
   handleBlur = event => {
     switch (event.target.name) {
       case "fullName":
@@ -68,13 +69,7 @@ class CallBackForm extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
 
   handleSubmitClick = () => {
-    const {
-      fullName,
-      businessName,
-      email,
-      telNumber,
-      callDateTime
-    } = this.state;
+    const {fullName, businessName, email, telNumber, callDateTime } = this.state;
     const user = {
       name: fullName,
       business_name: businessName,
@@ -99,6 +94,14 @@ class CallBackForm extends React.Component {
       }
     });
   };
+
+  // set default date for date picker form
+  currentDate = () => {
+    let date = new Date() 
+    let dateParse = date.toISOString().split(':')
+    return(dateParse[0]+':00')
+  }
+
 
   render() {
     const { classes } = this.props;
@@ -201,7 +204,7 @@ class CallBackForm extends React.Component {
                     ref={this.dateRef}
                     onBlur={this.handleBlur}
                     onChange={this.handleChange}
-                    defaultValue={this.state.callDateTime}
+                    defaultValue={this.currentDate()}
                     className={classes.textField}
                     validators={["required", "isValidDate"]}
                     errorMessages={[

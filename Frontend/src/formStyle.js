@@ -4,7 +4,8 @@ export const styles = theme => ({
     flexWrap: "wrap"
   },
   card: {
-    maxWidth: 40 + "%",
+    maxWidth: 30 + "%",
+    minWidth: 300+'px',
     padding: 20,
     textAlign: "center"
   },
