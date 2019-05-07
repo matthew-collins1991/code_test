@@ -10,6 +10,7 @@ import API from "./API";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 import validator from "validator";
 import { styles } from "./formStyle";
+import TextField from '@material-ui/core/TextField';
 
 class CallBackForm extends React.Component {
   state = {
@@ -25,7 +26,6 @@ class CallBackForm extends React.Component {
   businessNameRef = React.createRef();
   emailRef = React.createRef();
   telRef = React.createRef();
-  dateRef = React.createRef();
 
 
   handleBlur = event => {
@@ -42,15 +42,15 @@ class CallBackForm extends React.Component {
       case "telNumber":
         this.telRef.current.validate(event.target.value);
         break;
-      case "callDateTime":
-        this.telRef.current.validate(event.target.value);
-        break;
       default:
         return null;
     }
   };
 
   componentDidMount() {
+    this.setState({
+      callDateTime: this.currentDate()
+    })
     // custom rule to check full name is two words
     ValidatorForm.addValidationRule("isFullName", value => {
       if (value.split(" ").length < 2) {
@@ -196,21 +196,14 @@ class CallBackForm extends React.Component {
                   />
                 </Grid>
                 <Grid item xs={12}>
-                  <TextValidator
+                  <TextField
                     id="time"
                     label="Select a Time"
                     type="datetime-local"
                     name="callDateTime"
-                    ref={this.dateRef}
-                    onBlur={this.handleBlur}
                     onChange={this.handleChange}
                     defaultValue={this.currentDate()}
                     className={classes.textField}
-                    validators={["required", "isValidDate"]}
-                    errorMessages={[
-                      "this field is required",
-                      "You cannot use a date in the past"
-                    ]}
                     margin="normal"
                     InputLabelProps={{
                       shrink: true
