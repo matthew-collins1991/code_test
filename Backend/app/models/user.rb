@@ -1,5 +1,3 @@
-require 'pry'
-
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -17,7 +15,6 @@ class User < ApplicationRecord
   end
 
   def make_post_req
-    # binding.pry
     require 'net/http'
     require 'uri'
     require 'json'
@@ -37,9 +34,6 @@ class User < ApplicationRecord
           'contact_time' => self.format_time
         })
         res = http.request(req)
-        puts req
-        puts req.body
-        puts res
         puts "response #{res.body}"
         puts JSON.parse(res.body)
     rescue => e
