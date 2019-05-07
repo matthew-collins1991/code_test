@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import CallBackForm from '../App.js';
+import enzymeConfig from '../enzymeConfig';
 
 describe('<CallBackForm >', function() {
 
